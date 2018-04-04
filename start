@@ -10,9 +10,9 @@ int  ready;
 }process_structure;
 int main()
 {
-	int limit, count, temp_process, time, j, y,a;
+	int limit, count, temp_process, time, j, y,a=0,o,b,k,z;
     process_structure temp;
-	printf{"Enter the number of process:"};
+	printf("Enter the number of process:");
 	scanf("%d",&limit);
 	process_structure process[limit];
 	process_structure down[limit];
@@ -28,31 +28,54 @@ int main()
 		scanf("%d",&process[count].priority);
 		process[count].ready=0;
 	}
-	for(y=0;y<limt;y++)
+	for(y=0;y<limit-1;y++)
 	{
-		a=a+process[y].burst_time;
+		for(j=0;j<limit-y-1;j++)
+		{
+			if(process[j].arrival_time>process[j+1].arrival_time)
+			{
+				process_structure temp=process[j];
+				process[j]=process[j+1];
+				process[j+1]=temp;
+			}
+		}
 	}
 	for(y=0;y<limit;y++)
 	{
-		int i;
-		int x=process[0].arrival_time;
-		int z=process[y].arrival_time;
-		if(z<x)
-		process[y].ready=1;
-		if(process[y].ready==1)
-		printf("process %d is processing",y);
-		for(i=0;i<process[y].burst_time;i++)
-		{
-			for(j=0;j<limit;j++)
-			{
-				if(i<process[j].arrival_time&&process[y].process_id!=process[j].process_id)
-				printf(i);
-				else if(process[y].priority>process[j].priority)
-				
-			}
+		
+	    for(j=y+1;j<limit;j++)
+	    {
+	    	if(process[y].arrival_time==process[j].arrival_time&&process[y].priority<process[j].priority)
+	    	process[j].ready=1;
+	    	
 		}
+		process[y].ready=1;
+		for( k=0;k<limit;k++){
+			o=k+1;
 		
+		if(process[k].ready==1&&process[k].priority==0){
 		
-		
+		for(z=0;z<process[k].burst_time;z++)
+		{
+			
+			printf("process %d is pocessed for 1 second\n",k);
+			
+		}}
+	
+		else if(process[k].ready=1&& process[k].priority!=0)
+		do{
+			++o;
+			printf("process %d is processed for 1 second\n",k);
+			b=process[k].burst_time--;
+		}
+		while(process[k].priority<process[o].priority);
+		if(b!=0)
+		{ int g=0;
+		down[g]=process[k];
+		g++;
+			
+		}
 	}
-}
+	
+
+}}
