@@ -1,0 +1,58 @@
+#include<stdio.h>
+typedef struct
+
+{
+
+int process_id, arrival_time, burst_time, priority;
+
+int  ready;
+
+}process_structure;
+int main()
+{
+	int limit, count, temp_process, time, j, y,a;
+    process_structure temp;
+	printf{"Enter the number of process:"};
+	scanf("%d",&limit);
+	process_structure process[limit];
+	process_structure down[limit];
+	for(count=0;count<limit;count++)
+	{
+		printf("\nProcess ID:\t");
+		scanf("%d",&process[count].process_id);
+		printf("Arrival Time:\t");
+		scanf("%d",&process[count].arrival_time);
+		printf("Burst Time:\t");
+		scanf("%d",&process[count].burst_time);
+		printf("Process Priority:\t");
+		scanf("%d",&process[count].priority);
+		process[count].ready=0;
+	}
+	for(y=0;y<limt;y++)
+	{
+		a=a+process[y].burst_time;
+	}
+	for(y=0;y<limit;y++)
+	{
+		int i;
+		int x=process[0].arrival_time;
+		int z=process[y].arrival_time;
+		if(z<x)
+		process[y].ready=1;
+		if(process[y].ready==1)
+		printf("process %d is processing",y);
+		for(i=0;i<process[y].burst_time;i++)
+		{
+			for(j=0;j<limit;j++)
+			{
+				if(i<process[j].arrival_time&&process[y].process_id!=process[j].process_id)
+				printf(i);
+				else if(process[y].priority>process[j].priority)
+				
+			}
+		}
+		
+		
+		
+	}
+}
