@@ -43,20 +43,22 @@ int main()
 	}
 	for(y=0;y<limit;y++)
 	{
+		if(y<limit-1){
 		
-	    for(j=y+1;j<=limit;j++)
+	    for(j=y+1;j<limit;j++)
 	    {
 	    	if(process[y].arrival_time==process[j].arrival_time&&process[y].priority>process[j].priority)
 	    {
 	    	process[j].ready=1;
 	    	limit++;
-	    	process[limit-1]=process[y];
-
-	}
+	    	process[limit-1]=process[y];}
 	    	else
 	    	process[y].ready=1;
-		}
-	    	
+
+	    }                }
+	else{
+		process[y].ready=1;
+	}   	
 		for( k=0;k<limit;k++){
 		if(process[k].ready==1)
 		{
@@ -70,40 +72,41 @@ int main()
 				}
 				if(flag==1)
 				{
-				
+				down[a]=process[k];
+				a++;
 				break;
 				}
 				else{
 				
-				printf("Process %d is processing\n",k);
+				printf("Process %d is processing\n",process[k].process_id);
 			e--;
 				a++;
 				if(e!=process[k].burst_time&&e==0)
 				{
-					for(i=k;i<limit-1;i++)
-					{
-						process[i]=process[i+1];
-					}
-					for(z=0;z<limit-1;z++){
+			
+					for(z=k+1;z<limit;z++){
 					
 	
-		for(i=0;i<limit-z-1;i++)
+		for(i=k+1;i<4;i++)
 		{
 			if(process[i].arrival_time>process[i+1].arrival_time)
 			{
 				process_structure temp=process[i];
 				process[i]=process[i+1];
 				process[i+1]=temp;
+				
 			}
 			
 		}}
-		break;
-	
+		for(i=0;i<limit;i++)
+		{
+			printf("%d",process[i].process_id);
+		}
 	
 				}}}
 			
 					while(e>0);
-			
+			    e=0;
 				flag=0;
 				for(z=0;z<limit;z++)
 				{
@@ -114,8 +117,10 @@ int main()
 		}
 
 		}
-	
+		
 	
 
 }
+
+	
 }
