@@ -10,6 +10,7 @@ int  ready;
 
 int main()
 {
+	printf("**********************************FIXED PRIORITY IN LEVEL 1 AND ROUND ROBIN IN LEVEL 2**********************************");
 	int limit, count, temp_process, time, j, y,a=0,o,b,k,z=0,s,e,i,T=0,B_Sum=0;
 	int flag=0;
     process_structure temp;
@@ -85,7 +86,7 @@ int main()
 				}
 				else{
 				
-				printf("Process %d is processed for 1 second\n",process[k].process_id);
+				printf("Process %d is processed for 1 second in queue 1\n",process[k].process_id);
 			    e--;
 				a++;
 				if(e!=process[k].burst_time&&e==0)
@@ -125,14 +126,15 @@ int main()
 	
 
 }
+printf("****************END OF QUEUE 1****************\n");
 
 for(i=0;i<T+1;i++)
 		{
 		    
 		     if(down[i].burst_time>1){
-		     printf("Process %d is processed for 1 second\n",down[i].process_id);
+		     printf("Process %d is processed for 1 second in queue 2\n",down[i].process_id);
 		     down[i].burst_time--;
-		      printf("Process %d is processed for 1 second\n",down[i].process_id);
+		      printf("Process %d is processed for 1 second in queue 2\n",down[i].process_id);
 		     down[i].burst_time--;
 		     if(down[i].burst_time!=0)
 		     {
@@ -142,7 +144,7 @@ for(i=0;i<T+1;i++)
 			 }
 		     else if(down[i].burst_time==1)
 		     {
-		     	printf("Process %d is processed for 1 second\n",down[i].process_id);
+		     	printf("Process %d is processed for 1 second in queue 2\n",down[i].process_id);
 		     down[i].burst_time--;
 			 }
 			 else
