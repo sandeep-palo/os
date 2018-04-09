@@ -80,10 +80,15 @@ int main()
 				}
 				if(flag==1)
 				{
+				if(e==process[k].burst_time)
+				{
+					break;
+				}
+				else{
 				process[k].burst_time=e;
 				down[T]=process[k];
 				break;
-				}
+				}}
 				else{
 				
 				printf("Process %d is processed for 1 second in queue 1\n",process[k].process_id);
