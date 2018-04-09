@@ -1,13 +1,9 @@
 #include<stdio.h>
 typedef struct
 {
-
 int process_id, arrival_time, burst_time, priority;
-
 int  ready;
-
 }process_structure;
-
 int main()
 {
 	printf("**********************************FIXED PRIORITY IN LEVEL 1 AND ROUND ROBIN IN LEVEL 2**********************************");
@@ -29,8 +25,7 @@ int main()
 		printf("Process Priority:\t");
 		scanf("%d",&process[count].priority);
 		process[count].ready=0;
-	}
-	
+	}	
 	for(y=0;y<limit-1;y++)
 	{
 		for(j=0;j<limit-y-1;j++)
@@ -53,16 +48,12 @@ int main()
 	    {
 	    	process[j].ready=1;
 	    	limit++;
-	    	process[limit-1]=process[y];}
-	    	
-
-	         
-		else if(process[y].arrival_time==process[j].arrival_time&&process[y].priority<process[j].priority){
-		process[y].ready=1;
-		process[j].arrival_time++;           }
-		else
-	    	process[y].ready=1;}
-	
+	    	process[limit-1]=process[y];}	         
+	    	else if(process[y].arrival_time==process[j].arrival_time&&process[y].priority<process[j].priority){
+		    process[y].ready=1;
+		    process[j].arrival_time++;           }
+		    else
+	    	process[y].ready=1;}	
 	}   	
 	else{
 		process[y].ready=1;
@@ -87,55 +78,41 @@ int main()
 				else{
 				process[k].burst_time=e;
 				down[T]=process[k];
-				break;
-				}}
+				break;}
+				}
 				else{
 				
 				printf("Process %d is processed for 1 second in queue 1\n",process[k].process_id);
 			    e--;
 				a++;
-				if(e!=process[k].burst_time&&e==0)
+				if(e!=process[k].burst_time&&e!=0)
 				{
 			
-					for(z=0;z<limit-k-1;z++){
-					
-	
+		for(z=0;z<limit-k-1;z++){
 		for(i=k+1;i<limit-z-1;i++)
 		{
 			if(process[i].arrival_time>process[i+1].arrival_time)
 			{
 				process_structure temp=process[i];
 				process[i]=process[i+1];
-				process[i+1]=temp;
-				
-			}
-			
+				process[i+1]=temp;		
+			}		
 		}}
-		
-	
 				}}}
-			
 					while(e>0);
 			    e=0;
 				flag=0;
 				for(z=0;z<limit;z++)
 				{
 					if(process[z].ready==1)
-					process[z].ready=0;
-					
+					process[z].ready=0;					
 				}
 		}
-
-		}
-		
-	
-
+		}	
 }
 printf("****************END OF QUEUE 1****************\n");
-
 for(i=0;i<T+1;i++)
-		{
-		    
+		{	    
 		     if(down[i].burst_time>1){
 		     printf("Process %d is processed for 1 second in queue 2\n",down[i].process_id);
 		     down[i].burst_time--;
@@ -154,8 +131,5 @@ for(i=0;i<T+1;i++)
 			 }
 			 else
 			 break;
-		}
-		
-		
-	
+		}			
 }
