@@ -109,6 +109,7 @@ int main()
 		}
 		}	
 }
+if(T!=0){
 printf("****************END OF QUEUE 1****************\n");
 for(i=0;i<T+1;i++)
 		{	    
@@ -130,5 +131,5 @@ for(i=0;i<T+1;i++)
 			 }
 			 else
 			 break;
-		}			
+		}	}		
 }
