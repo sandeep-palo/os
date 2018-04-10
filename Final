@@ -9,7 +9,7 @@ int main()
 	printf("**********************************FIXED PRIORITY IN LEVEL 1 AND ROUND ROBIN IN LEVEL 2**********************************");
 	int limit, count, temp_process, time, j, y,a=0,o,b,k,z=0,s,e,i,T=0,B_Sum=0;
 	int flag=0;
-    process_structure temp;
+        process_structure temp;
 	printf("Enter the number of process:");
 	scanf("%d",&limit);
 	process_structure process[limit];
@@ -40,7 +40,7 @@ int main()
 	}
 	for(y=0;y<limit;y++)
 	{
-		if(y<limit-1){
+	if(y<limit-1){
 		
 	    for(j=y+1;j<limit;j++)
 	    {
@@ -52,8 +52,8 @@ int main()
 	    	else if(process[y].arrival_time==process[j].arrival_time&&process[y].priority<process[j].priority){
 		    process[y].ready=1;
 		    process[j].arrival_time++;           }
-		    else
-	    	process[y].ready=1;}	
+		else
+	    	    process[y].ready=1;}	
 	}   	
 	else{
 		process[y].ready=1;
@@ -98,8 +98,7 @@ int main()
 				process[i+1]=temp;		
 			}		
 		}}
-				}}}
-					while(e>0);
+		}}}while(e>0);
 			    e=0;
 				flag=0;
 				for(z=0;z<limit;z++)
